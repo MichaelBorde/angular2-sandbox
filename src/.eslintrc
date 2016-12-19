@@ -1,0 +1,6 @@
+{
+  "extends": [
+    "arpinum/configurations/frontend"
+  ],
+  "parser": "babel-eslint"
+}

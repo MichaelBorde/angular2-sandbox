@@ -1,0 +1,9 @@
+// To import before vendors sass to override variables
+@import "variables";
+// Vendor sass
+@import "bootstrap";
+@import "~primeng/resources/themes/bootstrap/theme.css";
+@import "~primeng/resources/primeng.css";
+@import "~font-awesome/scss/font-awesome";
+// sandbox sass
+// todo

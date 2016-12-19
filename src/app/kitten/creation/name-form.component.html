@@ -1,0 +1,9 @@
+<form [formGroup]="form" (ngSubmit)="onFormSubmit($event)" novalidate>
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" formControlName="name" id="name" class="form-control">
+  </div>
+  <button type="submit" [disabled]="!form.valid" class="btn btn-primary">
+    Next
+  </button>
+</form>

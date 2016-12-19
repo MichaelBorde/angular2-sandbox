@@ -1,0 +1,11 @@
+<p-dialog header="New kitten"
+          (onBeforeHide)="onBeforeHide($event)"
+          [visible]="true" [modal]="true"
+          [responsive]="true" [resizable]="false" [width]="500">
+  <ul>
+    <li *ngIf="kitten.name">Name: {{kitten.name}}</li>
+    <li *ngIf="kitten.type">Type: {{kitten.type}}</li>
+    <li *ngIf="kitten.color">Color: {{kitten.color}}</li>
+  </ul>
+  <router-outlet></router-outlet>
+</p-dialog>

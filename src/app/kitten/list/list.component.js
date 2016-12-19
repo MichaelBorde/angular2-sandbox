@@ -15,8 +15,8 @@ export class ListComponent {
     this._kittenService = kittenService;
     let self = this;
 
-    creationService.creationCancelled$.subscribe((...args) => creationCancelled(...args))
-    creationService.creationComplete$.subscribe((...args) => creationComplete(...args))
+    creationService.creationCancelled$.subscribe((...args) => creationCancelled(...args));
+    creationService.creationComplete$.subscribe((...args) => creationComplete(...args));
 
     function creationCancelled() {
       router.navigate(['./'], {relativeTo: route});

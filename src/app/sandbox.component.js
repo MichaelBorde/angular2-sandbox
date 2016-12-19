@@ -10,6 +10,5 @@ import './style/sandbox.scss';
 export class SandboxComponent {
 
   constructor() {
-    console.debug('==> Application started <==');
   }
 }

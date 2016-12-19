@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Output, Input} from '@angular/core';
+import {Component} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 
 import {CreationService} from './creation.service';
@@ -22,12 +22,12 @@ export class CreationPopupComponent {
 
     function nameDefined(kittenPart) {
       Object.assign(self.kitten, kittenPart);
-      router.navigate(['./type'], {relativeTo: route})
+      router.navigate(['./type'], {relativeTo: route});
     }
 
     function typeDefined(kittenPart) {
       Object.assign(self.kitten, kittenPart);
-      router.navigate(['./color'], {relativeTo: route})
+      router.navigate(['./color'], {relativeTo: route});
     }
 
     function colorDefined(kittenPart) {
@@ -35,7 +35,7 @@ export class CreationPopupComponent {
       self._creationService.completeCreation(self.kitten);
     }
 
-    router.navigate(['./name'], {relativeTo: route})
+    router.navigate(['./name'], {relativeTo: route});
   }
 
   onBeforeHide() {

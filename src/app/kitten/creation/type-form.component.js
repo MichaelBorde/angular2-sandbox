@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Output} from '@angular/core';
+import {Component} from '@angular/core';
 import {Validators, FormBuilder} from '@angular/forms';
 
 import {CreationService} from './creation.service';
@@ -8,8 +8,6 @@ import {CreationService} from './creation.service';
   templateUrl: './type-form.component.html'
 })
 export class TypeFormComponent {
-
-  @Output() formSubmit = new EventEmitter();
 
   constructor(formBuilder: FormBuilder, creationService: CreationService) {
     this._creationService = creationService;

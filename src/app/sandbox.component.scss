@@ -1,0 +1,17 @@
+@import "~bootstrap-sass/assets/stylesheets/bootstrap/variables";
+
+:host > .container-fluid {
+  display: flex;
+  padding: 0;
+  margin-top: $navbar-height;
+
+  .col-menu {
+    width: 230px;
+    padding: 10px;
+  }
+
+  .col-main {
+    flex: 1;
+    padding: 10px;
+  }
+}

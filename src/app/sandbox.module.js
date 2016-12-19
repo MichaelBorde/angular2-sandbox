@@ -3,7 +3,10 @@ import {APP_BASE_HREF} from '@angular/common';
 import {BrowserModule} from '@angular/platform-browser';
 import {RouterModule} from '@angular/router';
 
+import {SharedModule} from './shared/index';
+import {LayoutModule} from './layout/index';
 import {HomeModule} from './home/index';
+import {KittenModule} from './kitten/index';
 import {SandboxComponent} from './sandbox.component';
 import {sandboxRoutes} from './sandbox.routes';
 
@@ -11,7 +14,10 @@ import {sandboxRoutes} from './sandbox.routes';
   imports: [
     BrowserModule,
     RouterModule.forRoot(sandboxRoutes),
-    HomeModule
+    SharedModule.forRoot(),
+    LayoutModule,
+    HomeModule,
+    KittenModule
   ],
   declarations: [SandboxComponent],
   providers: [{

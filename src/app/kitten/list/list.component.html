@@ -1,0 +1,24 @@
+<div class="page-header">
+  <h1>
+    All kittens
+    <button class="btn btn-default" type="button">
+      Create
+    </button>
+  </h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Color</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let kitten of kittens">
+      <td>{{kitten.name}}</td>
+      <td>{{kitten.type}}</td>
+      <td>{{kitten.color}}</td>
+    </tr>
+  </tbody>
+</table>

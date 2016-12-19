@@ -4,9 +4,9 @@ import {SharedModule} from '../shared/index';
 import {KittenComponent} from './kitten.component';
 import {ListComponent} from './list/list.component';
 import {CreationPopupComponent} from './creation/creation-popup.component';
-import {NameFormComponent} from './creation/name-form.component';
-import {TypeFormComponent} from './creation/type-form.component';
-import {ColorFormComponent} from './creation/color-form.component';
+import {NameStepComponent} from './creation/steps/name-step.component';
+import {TypeStepComponent} from './creation/steps/type-step.component';
+import {ColorStepComponent} from './creation/steps/color-step.component';
 
 @NgModule({
   imports: [SharedModule],
@@ -14,9 +14,9 @@ import {ColorFormComponent} from './creation/color-form.component';
     KittenComponent,
     ListComponent,
     CreationPopupComponent,
-    NameFormComponent,
-    TypeFormComponent,
-    ColorFormComponent
+    NameStepComponent,
+    TypeStepComponent,
+    ColorStepComponent
   ]
 })
 export class KittenModule {

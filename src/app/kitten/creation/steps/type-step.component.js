@@ -1,22 +1,22 @@
 import {Component} from '@angular/core';
 import {Validators, FormBuilder} from '@angular/forms';
 
-import {CreationService} from './creation.service';
+import {CreationService} from '../creation.service';
 
 @Component({
-  selector: 'sb-name-form',
-  templateUrl: './name-form.component.html'
+  selector: 'sb-type-step',
+  templateUrl: './type-step.component.html'
 })
-export class NameFormComponent {
+export class TypeStepComponent {
 
   constructor(formBuilder: FormBuilder, creationService: CreationService) {
     this._creationService = creationService;
     this.form = formBuilder.group({
-      name: ['', Validators.required]
+      type: ['', Validators.required]
     });
   }
 
   onFormSubmit() {
-    this._creationService.defineName(this.form.value);
+    this._creationService.defineType(this.form.value);
   }
 }

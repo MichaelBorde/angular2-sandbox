@@ -1,9 +1,9 @@
 import {KittenComponent} from './kitten.component';
 import {ListComponent} from './list/list.component';
 import {CreationPopupComponent} from './creation/creation-popup.component';
-import {NameFormComponent} from './creation/name-form.component';
-import {TypeFormComponent} from './creation/type-form.component';
-import {ColorFormComponent} from './creation/color-form.component';
+import {NameStepComponent} from './creation/steps/name-step.component';
+import {TypeStepComponent} from './creation/steps/type-step.component';
+import {ColorStepComponent} from './creation/steps/color-step.component';
 
 export const kittenRoutes = [
   {
@@ -17,13 +17,13 @@ export const kittenRoutes = [
         component: CreationPopupComponent,
         children: [{
           path: 'name',
-          component: NameFormComponent,
+          component: NameStepComponent,
         }, {
           path: 'type',
-          component: TypeFormComponent,
+          component: TypeStepComponent,
         }, {
           path: 'color',
-          component: ColorFormComponent,
+          component: ColorStepComponent,
         }, {
           path: '',
           redirectTo: 'name',

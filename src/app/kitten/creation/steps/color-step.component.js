@@ -1,13 +1,13 @@
 import {Component} from '@angular/core';
 import {Validators, FormBuilder} from '@angular/forms';
 
-import {CreationService} from './creation.service';
+import {CreationService} from '../creation.service';
 
 @Component({
-  selector: 'sb-color-form',
-  templateUrl: './color-form.component.html'
+  selector: 'sb-color-step',
+  templateUrl: './color-step.component.html'
 })
-export class ColorFormComponent {
+export class ColorStepComponent {
 
   constructor(formBuilder: FormBuilder, creationService: CreationService) {
     this._creationService = creationService;

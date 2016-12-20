@@ -1,14 +1,12 @@
 import {Injectable} from '@angular/core';
 
-const kittens = [];
+const kittens = [
+  {name: 'Garfield', type: 'European shorthair', color: 'Ginger'},
+  {name: 'Azraël', type: 'European shorthair', color: 'Ginger'}
+];
 
 @Injectable()
 export class KittenService {
-
-  constructor() {
-    this.add({name: 'Garfield', type: 'European shorthair', color: 'Ginger'});
-    this.add({name: 'Azraël', type: 'European shorthair', color: 'Ginger'});
-  }
 
   all() {
     return Promise.resolve(kittens);

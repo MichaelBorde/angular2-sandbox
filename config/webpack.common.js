@@ -15,31 +15,32 @@ module.exports = {
     loaders: [
       {
         test: /\.js$/,
-        loaders: ['babel', 'angular2-template-loader'],
+        loaders: ['babel-loader', 'angular2-template-loader'],
         exclude: /node_modules/
       },
       {
         test: /\.html$/,
-        loader: 'html'
+        loader: 'html-loader'
       },
       {
         test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
-        loader: 'file?name=assets/[name].[hash].[ext]'
+        loader: 'file-loader?name=assets/[name].[hash].[ext]'
       },
       {
         test: /\.scss$/,
         include: helpers.root('src', 'app', 'style'),
-        loader: ExtractTextPlugin.extract('style', 'css?sourceMap!postcss!resolve-url!sass?sourceMap')
+        loader: ExtractTextPlugin.extract('style-loader',
+          ['css-loader?sourceMap', 'postcss-loader', 'resolve-url-loader', 'sass-loader?sourceMap'])
       },
       {
         test: /\.css$/,
         include: helpers.root('src', 'app', 'style'),
-        loader: ExtractTextPlugin.extract('style', 'css?sourceMap')
+        loader: ExtractTextPlugin.extract('style-loader', 'css-loader?sourceMap')
       },
       {
         test: /\.scss$/,
         exclude: helpers.root('src', 'app', 'style'),
-        loader: 'raw!postcss!resolve-url!sass?sourceMap'
+        loaders: ['raw', 'postcss-loader', 'resolve-url-loader', 'sass-loader?sourceMap']
       }
     ]
   },

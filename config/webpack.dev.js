@@ -8,7 +8,7 @@ const configuration = require('../lib/configuration');
 console.log('Loading webpack.dev.js');
 
 module.exports = webpackMerge(commonConfig, {
-  devtool: 'cheap-module-eval-source-map',
+  devtool: '#inline-source-map',
 
   output: {
     path: helpers.root(configuration.webOutput),

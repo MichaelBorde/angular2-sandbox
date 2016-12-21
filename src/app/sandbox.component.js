@@ -10,5 +10,6 @@ import './style/sandbox.scss';
 export class SandboxComponent {
 
   constructor() {
+    console.log('App started'); // eslint-disable-line no-console
   }
 }

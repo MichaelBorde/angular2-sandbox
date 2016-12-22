@@ -1,0 +1,5 @@
+<button (click)="onOpenModal($event)" class="btn btn-default">Open</button>
+
+<sb-modal title="My modal" [visible]="modalVisible" (modalClosed)="onModalClosed()">
+  <div style="height: 500px;"></div>
+</sb-modal>

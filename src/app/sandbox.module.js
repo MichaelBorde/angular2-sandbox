@@ -7,6 +7,7 @@ import {SharedModule} from './shared/index';
 import {LayoutModule} from './layout/index';
 import {HomeModule} from './home/index';
 import {KittenModule} from './kitten/index';
+import {WidgetModule} from './widget/index';
 import {SandboxComponent} from './sandbox.component';
 import {sandboxRoutes} from './sandbox.routes';
 
@@ -17,7 +18,8 @@ import {sandboxRoutes} from './sandbox.routes';
     SharedModule.forRoot(),
     LayoutModule,
     HomeModule,
-    KittenModule
+    KittenModule,
+    WidgetModule
   ],
   declarations: [SandboxComponent],
   providers: [{

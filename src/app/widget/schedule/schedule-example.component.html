@@ -1,0 +1,16 @@
+<sb-schedule-settings (submitted)="onSettingsChanged($event)"></sb-schedule-settings>
+<hr>
+<ul>
+  <li>
+    Last slot selected: {{lastSlotSelected?.value | date:'dd/MM/yy HH:mm'}}
+  </li>
+  <li>
+    Last slot mouse over: {{lastSlotMouseOver?.value | date:'dd/MM/yy HH:mm'}}
+  </li>
+</ul>
+<hr>
+<sb-schedule [stepInMinutes]="stepInMinutes"
+             [events]="events"
+             (slotSelected)="onSlotSelected($event)"
+             (slotMouseOver)="onSlotMouseOver($event)">
+</sb-schedule>

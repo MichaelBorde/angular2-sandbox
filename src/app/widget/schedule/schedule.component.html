@@ -1,0 +1,32 @@
+<div class="table-responsive">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th class="th-time"></th>
+        <th class="th-date" *ngFor="let date of dates">
+          {{date.value | date:'EEE d/M'}}
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr [ngClass]="row.cssClass" *ngFor="let row of rows">
+        <td [attr.colspan]="col.colSpan" [attr.rowspan]="col.rowSpan"
+            [ngClass]="col.cssClass"
+            *ngFor="let col of row.columns"
+            (click)="col.onClick(col)"
+            (mouseover)="col.onMouseOver(col)"
+            [ngStyle]="col.cssStyle">
+          <div *ngIf="col.type === 'timeIndication'">
+            {{col.value | date:'HH:mm'}}
+          </div>
+          <div *ngIf="col.type === 'slot'">
+            &nbsp;
+          </div>
+          <div class="event-container" *ngIf="col.type === 'event'">
+            {{col.value.title}}
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

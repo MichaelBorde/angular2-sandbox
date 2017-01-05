@@ -1,0 +1,11 @@
+<form [formGroup]="form" class="form-inline" (ngSubmit)="onSubmitted($event)" novalidate>
+  <div class="form-group">
+    <label for="stepInMinutes">Step</label>
+    <select type="number" id="stepInMinutes" class="form-control" formControlName="stepInMinutes">
+      <option *ngFor="let step of steps" [value]="step.value">
+        {{step.label}}
+      </option>
+    </select>
+  </div>
+  <button type="submit" class="btn btn-default">Apply</button>
+</form>

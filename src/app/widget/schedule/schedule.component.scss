@@ -1,0 +1,43 @@
+thead th {
+  text-align: center;
+}
+
+thead th.th-time {
+  width: 9%;
+}
+
+thead th.th-date {
+  width: 13%;
+}
+
+tbody td {
+  padding: 0;
+  border-top: 0;
+  border-bottom: 0;
+}
+
+tbody tr.first-tr-for-hour td {
+  border-top: 1px solid #ddd;
+}
+
+td.td-time-indication {
+  height: 60px;
+  padding: 8px;
+  font-weight: bold;
+  text-align: center;
+}
+
+td.td-slot {
+  line-height: 1px;
+}
+
+td.td-event {
+  position: relative;
+}
+
+.event-container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  overflow: hidden;
+}

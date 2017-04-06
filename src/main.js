@@ -1,10 +1,10 @@
 import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 import {enableProdMode} from '@angular/core';
 
-import {SandboxModule} from './app/sandbox.module';
+import {AppModule} from './app/app.module';
 
 if (productionMode) { // eslint-disable-line no-undef
   enableProdMode();
 }
 
-platformBrowserDynamic().bootstrapModule(SandboxModule);
+platformBrowserDynamic().bootstrapModule(AppModule);

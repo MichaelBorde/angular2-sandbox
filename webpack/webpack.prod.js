@@ -1,3 +1,5 @@
+'use strict';
+
 const webpack = require('webpack');
 const webpackMerge = require('webpack-merge');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -7,27 +9,20 @@ const configuration = require('../lib/configuration');
 
 process.env.NODE_ENV = process.env.ENV = 'production';
 
-console.log('Loading webpack.prod.js');
+console.log('webpack.prod.js loading');
 
-module.exports = webpackMerge(commonConfig, {
-  devtool: 'source-map',
-
+module.exports = webpackMerge(commonConfig(), {
   output: {
-    path: helpers.root(configuration.webOutput),
+    path: helpers.root(configuration.webDestination),
     publicPath: '/',
-    filename: '[name].[hash].js',
-    chunkFilename: '[id].[hash].chunk.js'
-  },
-
-  htmlLoader: {
-    minimize: false
+    filename: '[name].[chunkhash].bundle.js',
+    chunkFilename: '[id].[chunkhash].chunk.js'
   },
 
   plugins: [
-    new webpack.NoErrorsPlugin(),
-    new webpack.optimize.DedupePlugin(),
-    new webpack.optimize.UglifyJsPlugin(),
-    new ExtractTextPlugin('[name].[hash].css'),
+    new webpack.NoEmitOnErrorsPlugin(),
+    new webpack.optimize.UglifyJsPlugin({mangle: {keep_fnames: true}}),
+    new ExtractTextPlugin('[name].[contenthash].css'),
     new webpack.DefinePlugin({
       productionMode: 'true'
     })

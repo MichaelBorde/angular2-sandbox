@@ -9,14 +9,14 @@ module.exports = grunt => {
   gap.configure(grunt);
 
   grunt.registerPromiseTask('cleanBuild', () => {
-    if (!/^\.\//.test(configuration.webOutput)) {
-      throw new Error('Web output seems weird:', configuration.webOutput);
+    if (!/^\.\//.test(configuration.webDestination)) {
+      throw new Error('Weird web destination:', configuration.webDestination);
     }
-    return fs.remove(configuration.webOutput);
+    return fs.remove(configuration.webDestination);
   });
 
   grunt.registerPromiseTask('webpack:build', () =>
-    executeLocal('webpack', ['--bail', '--profile', '--progress', '--config', './config/webpack.prod.js']));
+    executeLocal('webpack', ['--bail', '-p', '--progress', '--config', './webpack/webpack.prod.js']));
 
   grunt.registerPromiseTask('live', () =>
     executeLocal(
@@ -24,16 +24,16 @@ module.exports = grunt => {
         '-m', '5',
         '-w', '--watchDirectory', 'lib',
         '--minUptime', '2000', '--spinSleepTime', '5000',
-        './lib/server.js']));
+        './lib/main.js']));
 
   grunt.registerPromiseTask('eslint', () =>
     executeLocal('eslint', ['.']));
 
-  grunt.registerPromiseTask('mocha:dev', () =>
-    executeLocal('mocha', ['./src/**/*.spec.js']));
+  grunt.registerPromiseTask('karma:test', () =>
+    executeLocal('karma', ['start', './karma/karma.conf.js']));
 
-  grunt.registerPromiseTask('mocha:watch', () =>
-    executeLocal('watch', ['--wait', '1', './node_modules/.bin/grunt --force', 'src']));
+  grunt.registerPromiseTask('karma:watch', () =>
+    executeLocal('karma', ['start', './karma/karma.conf.js', '--singleRun=false']));
 
   grunt.registerTask('info', () => {
     let project = require('./package.json');
@@ -41,8 +41,8 @@ module.exports = grunt => {
     grunt.log.writeln(`${date} - ${project.name} (${project.description})`.cyan);
   });
 
-  grunt.registerTask('test', ['mocha:dev', 'eslint']);
-  grunt.registerTask('tdd', ['mocha:watch']);
+  grunt.registerTask('test', ['karma:test', 'eslint']);
+  grunt.registerTask('tdd', ['karma:watch']);
   grunt.registerTask('build', ['cleanBuild', 'webpack:build']);
   grunt.registerTask('default', ['test', 'info']);
 };

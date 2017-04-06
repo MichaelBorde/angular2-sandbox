@@ -9,13 +9,13 @@ import {HomeModule} from './home/index';
 import {EncapsulationModule} from './encapsulation/index';
 import {KittenModule} from './kitten/index';
 import {WidgetModule} from './widget/index';
-import {SandboxComponent} from './sandbox.component';
-import {sandboxRoutes} from './sandbox.routes';
+import {AppComponent} from './app.component';
+import {appRoutes} from './app.routes';
 
 @NgModule({
   imports: [
     BrowserModule,
-    RouterModule.forRoot(sandboxRoutes),
+    RouterModule.forRoot(appRoutes),
     SharedModule.forRoot(),
     LayoutModule,
     HomeModule,
@@ -23,12 +23,12 @@ import {sandboxRoutes} from './sandbox.routes';
     KittenModule,
     WidgetModule
   ],
-  declarations: [SandboxComponent],
+  declarations: [AppComponent],
   providers: [{
     provide: APP_BASE_HREF,
     useValue: '/'
   }],
-  bootstrap: [SandboxComponent]
+  bootstrap: [AppComponent]
 })
-export class SandboxModule {
+export class AppModule {
 }
